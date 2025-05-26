@@ -8,3 +8,11 @@ def des_encriptar_contraseña(contraseña: str, contraseña_encriptada: str) -> 
 
 def verificar_contraseña(contraseña: str, contraseña_encriptada: str) -> bool:
     return bcrypt.checkpw(contraseña.encode('utf-8'), contraseña_encriptada.encode('utf-8'))
+
+def error_response(message: str, status_code: int = 400) -> dict:
+    return {
+        "error": {
+            "message": message,
+            "status_code": status_code
+        }
+    }
