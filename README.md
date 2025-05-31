@@ -1,3 +1,1 @@
-# fastapi-proyecto
-# fastapi
 # fastapi
