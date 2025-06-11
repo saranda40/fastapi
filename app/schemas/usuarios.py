@@ -25,7 +25,7 @@ class UsuarioOut(UsuarioBase):
     id_usuario: int
     creado_en: datetime
 
-    class Config:
+class Config:
         orm_mode = True
 
 class EstadoCivilBase(BaseModel):
@@ -38,7 +38,7 @@ class EstadoCivilCreate(EstadoCivilBase):
 class EstadoCivilOut(EstadoCivilBase):
     id_estado_civil: int
 
-    class Config:
+class Config:
         orm_mode = True
 
 class NacionalidadBase(BaseModel):
@@ -51,7 +51,7 @@ class NacionalidadCreate(NacionalidadBase):
 class NacionalidadOut(NacionalidadBase):
     id_nacionalidad: int
 
-    class Config:
+class Config:
         orm_mode = True
 
 class TipoDocumentoBase(BaseModel):
@@ -60,11 +60,9 @@ class TipoDocumentoBase(BaseModel):
 
 class TipoDocumentoCreate(TipoDocumentoBase):
     pass
-
 class TipoDocumentoOut(TipoDocumentoBase):
     id_tipo_documento: int
-
-    class Config:
+class Config:
         orm_mode = True
 
 class RegionBase(BaseModel):
@@ -75,7 +73,7 @@ class RegionCreate(RegionBase):
 class RegionOut(RegionBase):
     id_region: int
 
-    class Config:
+class Config:
         orm_mode = True
 
 class ComunaBase(BaseModel):
@@ -87,7 +85,7 @@ class ComunaCreate(ComunaBase):
 class ComunaOut(ComunaBase):
     id_comuna: int
 
-    class Config:
+class Config:
         orm_mode = True
         
 class CargoBase(BaseModel):
@@ -98,8 +96,9 @@ class CargoCreate(CargoBase):
 class CargoOut(CargoBase):
     id_cargo: int
 
-    class Config:
+class Config:
         orm_mode = True
+
 class SexoBase(BaseModel):
     sexo: str
     activo: bool
@@ -108,5 +107,5 @@ class SexoCreate(SexoBase):
 class SexoOut(SexoBase):
     id_sexo: int
 
-    class Config:
+class Config:
         orm_mode = True

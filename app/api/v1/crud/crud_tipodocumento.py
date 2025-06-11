@@ -28,8 +28,8 @@ def crear_tipo_documento_crud(tipo_documento: TipoDocumentoCreate, db: Session):
 
 def listar_tipos_documento_crud(db: Session):
     # Obtener todos los tipos de documento
-    tipos_documento = db.query(TipoDocumento).all()
-    return tipos_documento
+    tipos_documentos = db.query(TipoDocumento).all()
+    return tipos_documentos
 
 def obtener_tipo_documento_crud(id_tipo_documento: int, db: Session):
     # Obtener tipo de documento por ID
