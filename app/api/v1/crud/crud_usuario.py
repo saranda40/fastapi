@@ -27,7 +27,6 @@ def crear_usuario_crud(usuarios: UsuarioCreate, db: Session = Depends(get_db)):
     id_region = usuarios.id_region
     id_comuna = usuarios.id_comuna
 
-
     valida_estado_civil = db.query(EstadoCivil).filter(EstadoCivil.id_estado_civil == id_estado_civil and EstadoCivil.activo == True).first()
     if not valida_estado_civil:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="El estado civil no existe")
@@ -99,7 +98,7 @@ def actualizar_usuario_crud(id: int, datos: UsuarioCreate, db: Session = Depends
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     usuario.nombres = datos.nombres
     usuario.email = datos.email
-    usuario.password = datos.password
+    usuario.password = encriptar_contraseña(datos.password)
     usuario.apellidos = datos.apellidos
     usuario.numero_documento = datos.numero_documento
     usuario.id_tipo_documento = datos.id_tipo_documento

@@ -6,6 +6,7 @@ class UsuarioBase(BaseModel):
     email: EmailStr
     nombres: str
     apellidos: str
+    password: str   # Optional for updates
     fecha_nacimiento: date
     numero_documento: str
     id_tipo_documento: int
