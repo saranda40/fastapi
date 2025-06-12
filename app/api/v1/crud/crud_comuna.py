@@ -37,9 +37,9 @@ def crear_comuna_crud(comunas: ComunaCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(nueva_comuna)
 
-def listar_comunas_crud(db: Session = Depends(get_db)):
+def listar_comunas_crud(id_region: int, db: Session = Depends(get_db)):
     # Obtener todas las comunas
-    comunas = db.query(Comuna).all()
+    comunas = db.query(Comuna).filter(Comuna.id_region == id_region).all()
     return comunas
 
 def obtener_comuna_crud(id_comuna: int, db: Session = Depends(get_db)):

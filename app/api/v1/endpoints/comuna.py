@@ -13,9 +13,9 @@ router = APIRouter(prefix="/comuna", tags=["Comuna"])
 def crear_comuna(comunas: ComunaCreate, db: Session = Depends(get_db)):
     return crear_comuna_crud(comunas, db)
 
-@router.get("/", response_model=List[ComunaOut])
-def obtener_comuna(db: Session = Depends(get_db)):
-    return listar_comunas_crud(db)
+@router.get("/{id_region}", response_model=List[ComunaOut])
+def obtener_comuna(id_region: int, db: Session = Depends(get_db)):
+    return listar_comunas_crud(id_region, db)
 
 @router.get("/{id_comuna}", response_model=ComunaOut)
 def obtener_comuna_por_id(id_comuna: int, db: Session = Depends(get_db)):
